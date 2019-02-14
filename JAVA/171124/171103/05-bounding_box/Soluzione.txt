@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Soluzione {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int minx = Integer.MAX_VALUE, miny = Integer.MAX_VALUE;
+        int maxx = 0, maxy = 0;
+        int y = 0;
+        while (s.hasNextLine()) {
+            String line = s.nextLine();
+            boolean empty = true;
+            for (int x = 0; x < line.length(); x++)
+                if (line.charAt(x) == '*') {
+                    if (minx > x) minx = x;
+                    if (maxx < x) maxx = x;
+                    empty = false;
+                }
+            if (!empty) {
+                if (miny > y) miny = y;
+                if (maxy < y) maxy = y;
+            }
+            y++;
+        }
+        System.out.println((1  + maxy - miny) + " " + (1 + maxx - minx));
+    }
+}

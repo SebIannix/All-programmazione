@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Soluzione {
+
+  public static long reverse(long x) {
+    long r = 0;
+    for (;;) {
+      r += x % 10;
+      x /= 10;
+      if (x == 0)
+        break;
+      r *= 10;
+    }
+    return r;
+  }
+
+  public static boolean isPalindrome(long x) {
+      return x == reverse(x);
+  }
+
+  public static void main(String[] args) {
+    Scanner s = new Scanner(System.in);
+    long x = s.nextLong();
+    while (!isPalindrome(x)) {
+      System.out.println(x);
+      x += reverse(x);
+    }
+    System.out.println(x);
+  }
+}

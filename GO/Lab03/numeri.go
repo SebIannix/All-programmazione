@@ -5,10 +5,10 @@ import (
 	"math"
 )
 
-var n, ints, sum int
-var over, under, z  = 0, 0, 0
-var min = math.MinInt64
-var max = math.MaxInt64
+	var n, ints, sum int
+	var over, under, z  = 0, 0, 0
+	var min = math.MinInt64
+	var max = math.MaxInt64	
 
 func main() {
 	fmt.Print("Inserisci quantità di interi: ")
@@ -19,7 +19,6 @@ func main() {
 	fmt.Println("Inserisci", n, "numeri:")
 	for ints = range a {
 		fmt.Scan(&ints)
-		
 		
 		//Somma
 		sum += ints
@@ -35,14 +34,19 @@ func main() {
 		}
 		
 		//Valori
-		
+		if ints > 0 {
+			over++
+		} else if ints < 0 {
+			under++
+		} else if ints == 0 {
+			z++
+		}
 	}
+	
 	fmt.Println("Somma:", sum)
 	fmt.Println("Valore minimo:", max)
 	fmt.Println("Valore massimo:", min)
 	fmt.Println("Interi > 0:", over)
 	fmt.Println("Interi < 0:", under)
 	fmt.Println("Interi = 0:", z)
-
-	fmt.Println("DEBUG:", a)
 }

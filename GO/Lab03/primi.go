@@ -27,6 +27,11 @@ func main() {
 		continue
 	}
 	
-	fmt.Println(isPrime(in))
+	//Stampa finale
+	if isPrime(in) {
+		fmt.Println("Primo")
+	} else {
+		fmt.Println("Composto")
+	}
 	
 }

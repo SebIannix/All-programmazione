@@ -19,10 +19,10 @@ func main() {
 	for i := 1; i <= in; i++ {
 		if i%3 == 0 {
 			fmt.Println(lineO)
-		} else if i%2 == 1 {
-			fmt.Println(line)
-		} else {
+		} else if i%2 == 0 {
 			fmt.Println(linePiù)
+		} else {
+			fmt.Println(line)
 		}
 	}
 }

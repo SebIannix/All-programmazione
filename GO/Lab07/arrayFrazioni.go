@@ -21,11 +21,9 @@ func input(x []int, err error) []int {
 func main() {
 	fmt.Print("Inserire valori: ")
 	x := input([]int{}, nil)
-	fmt.Print("Output:		", x, "\n")
+	fmt.Print("Output: ", x, "\n")
 	
-	for i := len(x)/2-1; i >= 0; i-- {
-		y := len(x)-1-i
-		x[i], x[y] = x[y], x[i]
+	for i := 0; i < len(x); i++ {
+		x[i] = 
 	}
-	fmt.Print("Reverse output:	", x, "\n")
 }

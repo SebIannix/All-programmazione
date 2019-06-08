@@ -26,10 +26,12 @@ func main() {
 	fmt.Scan(&x)
 	fmt.Print("Inserire ", x, " interi:\n")
 	
+	var s1 []int = make([]int, x)
+	
 	scanner := bufio.NewScanner(os.Stdin)
 	for i := 0; i < x && scanner.Scan(); i++ {
 		y := numScanner(scanner.Text())
-		fmt.Println(y)
+		s1[i] = y
 	}
-	fmt.Println()
+	fmt.Println(s1)
 }

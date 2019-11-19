@@ -1,0 +1,122 @@
+LABORATORIO 21/10/2019 - IF
+
+ESERCIZIO 2.1a (PARI-DISPARI)
+Scrivere un programma pari_dispari.go che legge un intero n e, a seconda del valore di n, stampa uno dei messaggi "n è pari" oppure "n è dispari".
+
+Esempi di esecuzione:
+numero? 4
+4 è pari
+numero?
+15
+15 è dispari
+
+
+ESERCIZIO 2.1b (FRAZIONI)
+Scrivere un programma frazioni.go che verifica se due frazioni num1/den1 e num2/den2 sono equivalenti e stampa "equivalenti" o "non equivalenti", a seconda del caso. Usare il tipo int per i dati in input. Pensate a una soluzione che non necessiti dell'uso di float64.
+
+Esempio di esecuzione:
+
+num e den fraz 1 ? 
+12 32
+num e den fraz 2 ? 
+10 13
+non equivalenti
+
+
+ESERCIZIO 2.2a (VOTO VALIDO)
+Scrivere un programma Go voto_valido.go che legge un numero intero. Se il numero non è compreso tra 0 e 30, stampa “voto non valido”, altrimenti non stampa niente.
+
+Esempi di esecuzione:
+voto?
+42
+voto non valido
+
+voto? 28
+
+
+ESERCIZIO 2.3a (INDOVINA 10)
+Scrivere un programma indovina_10.go che fissa un numero intero tra 1 e 10 da indovinare, legge un intero da standard input e
+- se il numero in input è fuori dall’intervallo 1-10, stampa “Valore non valido”;
+- se il numero è quello fissato, stampa “Hai indovinato!”; 
+- altrimenti stampa “Non hai indovinato”.
+
+
+
+ESERCIZIO 2.3b (RETTA E PUNTO)
+Scrivere un programma punto_retta.go che controlla se un punto (x,y) sta sopra, sotto o appartiene a una retta y = mx + q data, a meno di una differenza pari a 10^-6. 
+Si dichiarino i dati in ingresso come float64.
+In Go 10^-6 può essere scritto come 1e-06.
+
+
+ESERCIZIO 2.4 (TASSE)
+Scrivere un programma tasse.go che chiede reddito e stato civile e calcola le tasse da pagare secondo la seguente tabella. Usate il tipo bool per lo stato civile e usate costanti per le aliquote (10% e 25%) e per gli scaglioni (32000 e 64000).
+ _____________________________________________
+| non coniugato	|	coniugato	|   % |
+|---------------------------------------------|
+| 0 - 32000	|	0 - 64000	|  10%|
+| > 32000	|	> 64000		|  25%|
+|_____________________________________________|
+
+
+ESERCIZIO 2.5 (VOTI IN LETTERE)
+Scrivere un programma esiti.go che associa voti in lettere a punteggi secondo la seguente tabella. I voti sono int.
+
+90 - 100  A 
+80 - 89   B 
+70 - 79   C 
+60 - 69   D 
+0  - 59   F
+
+Più precisamente il programma riceve in ingresso un valore intero tra 0 e 100 e stampa su monitor il voto in lettere corrispondente, o "non valido" se fuori intervallo 0-100.
+
+Esempi di esecuzione:
+Voto? 100
+A
+
+Voto? 65
+D
+
+ESERCIZIO 2.6 (FIZZBUZZ)
+Scrivere un programma fizz_buzz.go che riceve in ingresso un numero intero e stampa "Fizz" se il numero è multiplo di 3, "Buzz" se il numero è multiplo di 5, "Fizz Buzz" se è multiplo sia di 3 sia di 5, niente altrimenti.
+
+Esempi di esecuzione:
+numero? 5
+Buzz
+
+numero? 4
+
+
+
+numero? 15
+Fizz Buzz
+
+numero? 6
+Fizz
+
+
+ESERCIZIO 2.7 (DATA VALIDA)
+2.7a (ANNO BISESTILE)
+Scrivere un programma bisestile.go che legge un intero n corrispondente all’anno di una data, e determina se l’anno è bisestile o no (stampa "bisestile" o "non bisestile").
+
+2.7b
+Scrivere un programma data_valida0.go che legge due interi gg e mm rappresentanti giorno e mese dell’anno, e verifica che sia una data valida. In questa versione si assuma che tutti i mesi abbiano 31 giorni. Il programma stampa "data valida" / "data non valida".
+
+2.7c
+Scrivere una seconda versione data_valida1.go in cui si tiene conto del fatto che solo i mesi 1, 3, 5, 7, 8, 10, 12 hanno 31 giorni, che i mesi 4, 6, 9, 11 ne hanno 30, e si assuma che febbraio ne abbia sempre 28.
+
+2.7d
+Scrivere una terza versione data_valida.go che legge tre interi gg, mm e aaaa (anno) e tiene conto anche degli anni bisestili.
+
+Esempi di esecuzione:
+
+gg mm aaaa? 29 02 2018
+data non valida!
+
+gg mm aaaa? 29 02 2020
+data valida!
+
+Annotazioni. Il calendario gregoriano si applica dal 1582, anno della sua introduzione. Benché, in via teorica, sia possibile estenderlo anche agli anni precedenti, per questi, di norma, si usa il calendario giuliano.
+Sono bisestili tutti gli anni divisibili per 4, compresi quelli secolari, dal 4 al 1580. Per gli anni precedenti non si applicano gli anni bisestili. Per gli anni dal 1582 (calendario gregoriano) sono bisestili:
+- gli anni non secolari il cui numero è divisibile per 4;
+- gli anni secolari il cui numero è divisibile per 400.
+Per esempio, il 1896 e il 1996 sono stati entrambi bisestili (non secolari divisibili per 4), il 1800 e il 1900 non lo sono stati (secolari non divisibili per 400), mentre il 1600 e il 2000 lo sono stati (secolari divisibili per 400).

@@ -1,0 +1,37 @@
+7) Cifrario Cesare
+      1     fqqt Ett
+      2     _ nel for serve a ignorare il tipo di valore richiesto, in questo caso la chiave. Senza di esso char diventerebbe di tipo int.
+      3     L'if serve a verificare che il valore di char sia un carattere alfabetico.
+      4     Il blocco serve a stabilire i caratteri da mantenere minuscoli e maiuscoli, e a stabilire l'ordine di partenza alfabetico del criptaggio.
+      5     if unicode.IsLetter(char) {
+      6     Assegna ad n il valore che indica la posizione alfabetica del carattere.
+      7     Assegna ad n il valore che indica la posizione alfabetica del carattere dopo essere stato crittografato.
+      8     char assume il valore numerico del tipo rune da convertire in seguito alla sua lettera (string) assegnata.
+6) Matrice
+      1     i indica da quale sottoinsieme iniziare, rispettivamente all'array, a memorizzare valori e raddoppiarli.
+      2     Dichiara da quale elemento di ogni sottoinsieme dell'array svolgere le operazioni di memorizzazione e raddoppiamento.
+      3     Raddoppia i valori inseriti nell'array multi-dimensionale.
+5) Array
+      1     i indica il valore inserito in una cella dell'array, p ne indica la posizione.
+      2     Indica la posizione nell'array dei valori inseriti precedentemente nell'array.
+      3     Nel caso in cui un valore non si trovi nell'array, -1 ne indica l'assenza.
+      4     L'array contiene i valori 1 --> 10 e il secondo input è 11.
+4) Numeri
+      1     Valori interi arbitrari.
+      2     L'utente deve immettere il valore 0 in standard input.
+      3     somma
+      4     Il ciclo for continua a sommare a un'iniziale valore 0 il valore immesso dall'utente: ciò prosegue finché non rileva 0 in standard input.
+      5     Il programma legge da standard input valori interi arbitrari, calcola la loro somma fino all'immissione del valore 0, dopo il quale stampa il valore finale della somma.
+2) Tre Casi
+      1     Stdin richiede un valore intero, mentre gli arg nella command-line possono essere di qualunque tipo.
+      2     Stampa gli arg in ordine immutato (1, 2, 3).
+      3     Il valore è ./tre_casi
+      4     6 12 7
+      5     Il programma legge tre argomenti arbitrari dalla riga di comando e un numero intero da standard input, quindi modifica l'ordine degli argomenti e infine stampa su standard output tale ordine.
+1) Conversione temp
+      1     const ha precisione arbitraria, e in questo caso il tipo delle variabili è implicito e scelto a seconda del contesto.
+      2     Serve a informare l'utente sul passaggio da svolgere e su cosa immettere in input.
+      3     Serve a contenere il valore, immesso dall'utente, che verrà utilizzato nell'operazione di conversione.
+      4     E' possibile sostituire esclusivamente uno tra i due valori: il compiler rileva la presenza del decimale e svolge l'operazione in float. L'operazione 5/9 viene svolta come int, che dà come risultato 0.
+      5     float64, perché l'operazione di conversione viene eseguita con la variabile fahr che è di tipo float64.
+      6     cels contiene il valore dell'operazione di conversione. Non è necessaria in quanto basterebbe trascrivere l'operazione nella riga 12, ma è comodo nel caso in cui il valore possa servire in ulteriori operazioni.

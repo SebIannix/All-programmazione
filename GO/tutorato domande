@@ -1,3 +1,16 @@
+7) Cifrario Cesare
+      1     fqqt Ett
+      2     _ nel for serve a ignorare il tipo di valore richiesto, in questo caso la chiave. Senza di esso char diventerebbe di tipo int.
+      3     L'if serve a verificare che il valore di char sia un carattere alfabetico.
+      4     Il blocco serve a stabilire i caratteri da mantenere minuscoli e maiuscoli, e a stabilire l'ordine di partenza alfabetico del criptaggio.
+      5     
+      6     Assegna ad n la differenza 
+      7     
+      8     
+6) Matrice
+      1     i indica da quale sottoinsieme iniziare, rispettivamente all'array, a memorizzare valori e raddoppiarli.
+      2     Dichiara da quale elemento di ogni sottoinsieme dell'array svolgere le operazioni di memorizzazione e raddoppiamento.
+      3     Raddoppia i valori inseriti nell'array multi-dimensionale.
 5) Array
       1     i indica il valore inserito in una cella dell'array, p ne indica la posizione.
       2     Indica la posizione nell'array dei valori inseriti precedentemente nell'array.
@@ -10,8 +23,8 @@
       4     Il ciclo for continua a sommare a un'iniziale valore 0 il valore immesso dall'utente: ciò prosegue finché non rileva 0 in standard input.
       5     Il programma legge da standard input valori interi arbitrari, calcola la loro somma fino all'immissione del valore 0, dopo il quale stampa il valore finale della somma.
 2) Tre Casi
-      1    Stdin richiede un valore intero, mentre gli arg nella command-line possono essere di qualunque tipo.
-      2    Stampa gli arg in ordine immutato (1, 2, 3).
+      1     Stdin richiede un valore intero, mentre gli arg nella command-line possono essere di qualunque tipo.
+      2     Stampa gli arg in ordine immutato (1, 2, 3).
       3     Il valore è ./tre_casi
       4     6 12 7
       5     Il programma legge tre argomenti arbitrari dalla riga di comando e un numero intero da standard input, quindi modifica l'ordine degli argomenti e infine stampa su standard output tale ordine.

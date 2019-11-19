@@ -3,10 +3,10 @@
       2     _ nel for serve a ignorare il tipo di valore richiesto, in questo caso la chiave. Senza di esso char diventerebbe di tipo int.
       3     L'if serve a verificare che il valore di char sia un carattere alfabetico.
       4     Il blocco serve a stabilire i caratteri da mantenere minuscoli e maiuscoli, e a stabilire l'ordine di partenza alfabetico del criptaggio.
-      5     
-      6     Assegna ad n la differenza 
-      7     
-      8     
+      5     if unicode.IsLetter(char) {
+      6     Assegna ad n il valore che indica la posizione alfabetica del carattere.
+      7     Assegna ad n il valore che indica la posizione alfabetica del carattere dopo essere stato crittografato.
+      8     char assume il valore numerico del tipo rune da convertire in seguito alla sua lettera (string) assegnata.
 6) Matrice
       1     i indica da quale sottoinsieme iniziare, rispettivamente all'array, a memorizzare valori e raddoppiarli.
       2     Dichiara da quale elemento di ogni sottoinsieme dell'array svolgere le operazioni di memorizzazione e raddoppiamento.

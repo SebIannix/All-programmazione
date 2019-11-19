@@ -1,3 +1,8 @@
+5) Array
+      1     i indica il valore inserito in una cella dell'array, p ne indica la posizione.
+      2     Indica la posizione nell'array dei valori inseriti precedentemente nell'array.
+      3     Nel caso in cui un valore non si trovi nell'array, -1 ne indica l'assenza.
+      4     L'array contiene i valori 1 --> 10 e il secondo input è 11.
 4) Numeri
       1     Valori interi arbitrari.
       2     L'utente deve immettere il valore 0 in standard input.
@@ -17,4 +22,3 @@
       4     E' possibile sostituire esclusivamente uno tra i due valori: il compiler rileva la presenza del decimale e svolge l'operazione in float. L'operazione 5/9 viene svolta come int, che dà come risultato 0.
       5     float64, perché l'operazione di conversione viene eseguita con la variabile fahr che è di tipo float64.
       6     cels contiene il valore dell'operazione di conversione. Non è necessaria in quanto basterebbe trascrivere l'operazione nella riga 12, ma è comodo nel caso in cui il valore possa servire in ulteriori operazioni.
-

@@ -1,0 +1,174 @@
+Lab 06 - esercizi di scrittura
+==============================
+
+Distanza di Hamming
+-------------------
+
+La distanza di Hamming tra due stringhe e` data dal 
+numero di caratteri in una stringa che sono diversi dai corrispondenti 
+(cioe` nella stessa posizione) nell'altra stringa. Si conteggiano 
+come diversi anche i caratteri che non hanno corrispondenti 
+(nel caso di stringhe di lunghezza diversa)
+
+Scrivere un programma hamming.go che legge due
+parole e calcola la distanza di Hamming tra loro (usare rune).
+
+Esempi
+------
+Scrivi due parole: rosa roba
+1
+
+Scrivi due parole: roba porosa
+5
+
+Modificate ora il programma in modo che continui a leggere due parole e a calcolare la loro distanza di Hamming fino a quando le due parole sono "0" e "0". Chiamate questa seconda versione hamming_bis.go
+
+________________________________________
+
+Palindromo
+----------
+
+Una parola e` detta palindroma se e` la stessa parola anche 
+quando viene letta da destra verso sinistra. Esempi di parole 
+palindrome sono: osso, oro, afa, radar, anilina, ottetto, 
+ingegni.
+
+Scrivere un programma palindromo.go che legge una parola 
+da standard input e stabilisce se e` palindroma o no, senza 
+utilizzare altre stringhe.
+
+Esempi
+------
+
+Parola: osso
+palindroma
+
+Parola: ago
+non palindroma
+
+Modificare il programma in modo che legga una riga di testo 
+(vedi nota) e stabilisca se, ignorando i caratteri che non 
+sono lettere e considerando uguali la minuscola e la maiuscola 
+di una stessa lettera, la frase letta è palindroma. 
+
+Ad esempio la frase "Era pacifica, pare" è palindroma.
+
+Nota. Per leggere una riga di testo utilizzate:
+scanner := bufio.NewScanner(os.Stdin)
+for scanner.Scan() {
+	line = scanner.Text()
+}
+
+________________________________________
+
+Scala
+-----
+
+Scrivere un programma scala.go dotato di:
+
+- una funzione
+	DrawPoint(c byte, k int) string
+che restituisce una stringa formata da k spazi bianchi
+seguiti dal carattere c
+
+- una funzione
+	DrawSegment(c byte, k, l int) string
+che restituisce una stringa formata da k spazi bianchi
+seguiti da l caratteri c
+
+- una funzione
+	main()
+che legge, in quest'ordine, due numeri interi l e n 
+e un carattere c (byte), e, se l e n sono > 0, produce 
+su standard output una scala di n gradini di lunghezza 
+e altezza l disegnati usando il carattere c 
+(vedi esempi sotto), altrimenti non fa niente.
+
+Esempi
+------
+
+parametri per la scala: 3 1 x
+xxx
+  x
+  x
+
+
+parametri per la scala: 3 2 +
++++
+  +
+  +
+  +++
+    +
+    +
+
+________________________________________
+
+ZTL
+---
+
+Scrivere un programma ztl.go che legge da standard input una stringa che 
+contiene un solo simbolo della tastiera;
+se il simbolo è L, T o Z, il programma stampa la lettera disegnata 
+con asterischi (vedi sotto),
+altrimenti stampa il messaggio "input non valido".
+
+Esempi
+------
+
+$ go run filtro.go
+L
+*
+*
+*
+*
+*****
+
+$ go run filtro.go
+T
+*****
+  *
+  *
+  *
+  *
+
+$ go run filtro.go
+Z
+*****
+   *
+  *
+ *
+*****
+
+$ go run filtro.go
+t
+input non valido
+
+________________________________________
+
+Percentuali
+-----------
+
+Scrivere un programma percentuali.go che, data su 
+standard input una sequenza di voti (numeri interi), 
+separati da caratteri di spaziatura (bianchi, tab, a-capo) 
+e compresi tra 0 e 30, produca in uscita le percentuali 
+(troncate al valore intero) dei voti tra 0 e 17 (insuff) 
+e tra 18 e 30 (suff).Il programma deve ignorare eventuali valori fuori dall’intervallo [0-30] e terminare la lettura su input -1.Non ci sono vincoli sul numero di dati in ingresso.Esempio
+insuff : 35 %suff : 65 %________________________________________
+
+Precipitazioni
+--------------
+
+Scrivere un programma pioggia.go che legge una serie di numeri
+non negativi da standard input (mm di pioggia caduti giorno per 
+giorno) fino a incontrare il numero 9999. Il programma deve
+stampare la media delle precipitazioni e qual è stato l'ultimo 
+giorno di pioggia.
+
+Esempio
+-------
+
+mm di pioggia: 4 0 0 2 8 0 3 0 0 0 99999
+media: 1.7
+ultimo giorno di pioggia: 7
+________________________________________

@@ -1,0 +1,181 @@
+Lab 05 - esercizi assegnati
+===========================
+
+
+1. Scrivere un programma disegna_rettangolo.go che 
+legge due interi positivi b e h e stampa un rettangolo 
+di asterischi di base b e altezza h.
+
+Esempio
+-------
+
+base rettangolo? 3
+altezza rettangolo? 4
+
+***
+***
+***
+***
+
+-----------------------------------
+
+2. Scrivere un programma disegna_triangolo.go che legge un intero
+positivo n e stampa un triangolo rettangolo di asterischi
+di base n e altezza n.
+
+Esempio
+-------
+
+base triangolo? 3
+*
+**
+***
+
+-----------------------------------
+
+3. Scrivere un programma min_max.go che legge da standard input una
+sequenza di numeri terminata da 0, e
+-a. trova il numero più grande
+-b. trova il numero più piccolo
+-c. nel caso la sequenza sia vuota, stampa un messaggio opportuno
+-d. nel caso arrivi in input un dato non numerico, lo gestisce 
+(lo ignora e prosegue, oppure avvisa e termina il programma)
+
+-----------------------------------
+
+4. Scrivere un programma fibonacci.go che legge un intero
+positivo n e stampa un istogramma (orizzontale) dei numeri di 
+fibonacci dal primo all'n-esimo.
+
+Esempio
+-------
+
+un numero: 6
+*
+*
+**
+***
+*****
+********
+
+-----------------------------------
+
+5. Scrivere un programma tabelline_1_n.go che legge un intero
+positivo n e stampa le tabelline dei numeri da 1 a n
+
+-----------------------------------
+
+6. Scrivere un programma luhn.go che legge 16 cifre
+(ad es. il numero di una carta di credito)
+e ne controlla la validita` utilizzando
+l'algoritmo di Luhn:
+- sostituire una cifra si' e una no con il suo doppio, 
+  iniziando dalla prima cifra
+  - nel caso il doppio sia un numero maggiore di 9, 
+    sottrarre 9 al doppio prima di fare la sostituzione
+- sommare tutte le cifre
+- se la somma e` esattamente divisibile per 10, il numero 
+  e` valido
+
+Ad esempio, per il  numero di carta di credito 4716435917330099 
+intervenendo, secondo la regola sopra, su una cifra e una no, 
+si ottiene la sequenza di cifre:
+
+8 7 2 6 8 3 1 9 2 7 6 3 0 0 9 9
+
+che sommate danno 80 -> carta valida
+
+Esempio
+-------
+
+numero da validare (16 cifre): 4716435917330099
+somma 80
+numero valido
+-----------------------------------
+
+7. Scrivere un programma primi_1_n.go che legge un intero
+positivo n stampa i numeri tra 1 e n che sono primi.
+
+-----------------------------------
+
+8. Si consideri il sistema di numerazione posizionale S3 
+in base 3 avente come cifre i tre simboli
+	z u d
+i cui valori sono rispettivamente:
+  val(z) = 0
+  val(u) = 1
+  val(d) = 2
+
+(z per zero, u per uno, d per due)
+
+Scrivere un programma s3toint.go che, dato un 
+numerale num in S3 in input, stampi il valore decimale 
+(cioè in base 10) di num.
+Nel caso l'input non sia un numerale in S3, il programma 
+stampa “input non valido”.
+
+Il programma deve avere
+- una funzione isS3 per controllare che l’argomento sia 
+  un numerale in S3
+- una funzione valS3 che associa 0 a z, 1 a u e 2 a d
+
+Nota. Si ricorda che un sistema di numerazione si dice 
+posizionale se i simboli (cifre) usati per scrivere i numeri 
+assumono valori diversi a seconda della posizione che occupano, 
+in generale partendo dalle unità a destra e crescendo andando
+verso sinistra. Il sistema di numerazione che usiamo 
+solitamente è un sistema posizionale in base 10.
+
+Esempi
+------
+numero S3: uzz
+9
+numero S3: dddd
+80
+numero S3: duz
+21
+numero S3: uzc
+input non valido
+numero S3: udzzzduuz
+11001
+-----------------------------------
+
+9. Scrivere un programma cesare.go che legge da standard input 
+un valore intero non negativo k (la chiave di cifratura) e
+una sequenza di lettere minuscole consecutive 
+(sulla stessa riga e senza spazi) terminate da <invio> ('\n').
+Il programma stampa la sequenza letta cifrata secondo il 
+cifrario di Cesare, usando come chiave k (quella fornita dall'utente):
+ogni lettera del testo in chiaro è sostituita nel 
+testo cifrato dalla lettera che si trova k posizioni dopo 
+nell'alfabeto, ritornando dopo la zeta alla lettera a.
+
+Esempi
+-------
+chiave: 2
+caratteri da cifrare:
+zaprb
+bcrtd
+è il testo cifrato
+
+chiave: 100
+caratteri da cifrare:
+abcd
+wxyz
+è il testo cifrato
+
+-----------------------------------
+
+10. Scrivere un programma disegna_v.go che legge un intero
+positivo n e stampa una v  di asterischi di altezza n.
+
+Esempio
+-------
+
+dimensione v? 3
+*   *
+ * *
+  *
+
+-----------------------------------
+-----------------------------------

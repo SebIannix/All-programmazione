@@ -1,0 +1,55 @@
+LABORATORIO 04 - 31/10/2019 - FOR
+
+_________________________________________________________________
+
+README
+------
+
+Scrivete i seguenti programmi e
+- dove riuscite, commentate i costrutti for indicando 
+il goal che avete individuato e quindi il plan utilizzato
+(ripetizione, calcolo di totale, conteggio, occorrenza, 
+valore estremo, valori adiacenti)
+oppure lo schema che avete utilizzato 
+(loop and a half, polling loop, skipping loop);
+- salvateli con il nome indicato;
+- compilateli e testateli per verificare che funzionino come vi aspettate,
+- caricateli sul sito di upload (upload.di.unimi.it)
+_________________________________________________________________
+
+
+1. Scrivere un programma euclide.go che, dati due interi, calcolare il MCD tra i due numeri con l'algoritmo di Euclide:
+
+Dati due numeri naturali a e b, 
+1. si controlla se b e` zero. 
+2. se lo e`, a è il MCD. 
+3. se non lo è, si assegna ad r il resto della divisione a / b, si assegna a = b e b = r e si ripete da 1.
+
+
+2. Scrivere un programma quadrati.go che, dato un intero n positivo, calcola il massimo quadrato <= n.
+
+
+3. Scrivere un programma differenze.go che legge dei valori da tastiera e stampa le differenze, cioe` la differenza tra il secondo e il primo, tra il terzo e il secondo, e cosi' via.
+
+
+4. Scrivere un programma indovina_numero.go che chiede all'utente di indovinare un numero random x tra 1 e MAX, (dove MAX e` una costante definita nel programma) e ripete la richiesta fino a che l'utente indovina, oppure effettua MAX/2 tentativi. Il programma stampa il numero di tentativi che sono stati necessari per indovinare oppure il messaggio "hai perso, il numero era x". Se il numero digitato dall'utente è fuori dall'intervallo [1,MAX], il tentativo non viene considerato e viene visualizzato il messaggio "fuori intervallo!", senza interrompere l'esecuzione. Utilizzare la funzione rand.Intn del package "math/rand" per fissare il numero da indovinare.
+10. Scrivere un programma capitale.go che, dato un capitale iniziale (es. 1000, un tasso di interesse (positivo, es. 2%) e un obiettivo (es. 2000), calcola quanti anni occorrono per arrivare all'obiettivo.
+
+
+5. Scrivere un programma vicino.go che, data una serie di 5 valori tra 0 e 20, trova il valore piu' vicino a TARGET, (dove TARGET e` una costante definita nel programma).
+
+
+6. Scrivere un programma andamento.go che legge da tastiera una serie di numeri > -1 e stampa "+" ogni volta che il nuovo valore e` maggiore o uguale al precedente e "-" altrimenti. Si ferma quando il numero in input e` -1 e stampa la somma di tutti i numeri letti.
+
+
+7. Scrivere un programma capitale.go che, dato un capitale iniziale (es. 1000 euro), un tasso di interesse (es. 2%) e un obiettivo (es. 2000 euro), calcola quanti anni occorrono per arrivare all'obiettivo. 
+
+
+8. Scrivere un programma primo.go che, dato un numero intero, determina se il numero e` primo. Suggerimento: occorre determinare il primo numero che e` un divisore (se c'è).
+
+
+9. Scrivere un programma somma_cifre.go che calcola la somma delle cifre di un numero intero scelto dall'utente.
+
+
+10. Scrivere un programma bin2ten.go che converte un intero composto di soli 0 ed 1 nel corrispondente valore "binario" (es. 101 -> 5). Nel caso il numero contenga altre cifre, il programma stampa un messaggio di errore.
+

@@ -1,0 +1,213 @@
+Laboratorio 07 - 21/11/2019
+===========================
+
+
+Piu meno per
+------------
+
+Scrivere un programma piu_meno_per.go dotato di una funzione 
+piu_meno_per che accetta due interi e restituisce la loro 
+somma, differenza e prodotto e di una funzione main che la testa.
+
+________________________________________________________________
+
+Scambio di valori
+-----------------
+Scrivere una funzione scambio, che quando invocata, scambia
+i valori di due variabili stringhe, cioè copia s1 in s2 e s2 in s1,
+e un programma scambio.go che la testi.
+
+________________________________________________________________
+
+Estrai la data
+--------------
+
+Scrivere un programma estrai_data.go dotato di una funzione
+data2ggmmaa(s string) (gg,mm,aa int)
+che estrae da una data in formato gg/mm/aa (es. 21/11/19)
+il numero del giorno, del mese e dell'anno.
+La funzione main legge da standard input la data e stampa 
+il numero del giorno, del mese e dell'anno.
+
+Esempio
+_______
+
+data: 21/11/19
+21 11 19
+
+________________________________________________________________
+
+Equita` di un dado
+------------------
+
+Scrivere un programma dado.go che analizza l'equita` 
+di un dado contando la frequenza di apparizione dei suoi 
+valori (1, 2, 3, 4, 5, 6). Il programma chiede all'utente 
+quanti lanci fare. Utilizzare la funzione rand.Intn(n int)
+del pacchetto "math/rand" e, per generare sequenze sempre 
+diverse, importare il package "time" e usare l'istruzione 
+rand.Seed(time.Now().Unix()) prima di iniziare a generare numeri.
+
+
+Esempio:
+=======
+
+Quanti lanci di dado?
+1000
+1: 186 (18%)
+2: 156 (15%)
+3: 170 (17%)
+4: 159 (15%)
+5: 166 (16%)
+6: 163 (16%)
+
+Suggerimento: utilizzare un array di 7 interi (frequenza [7]int); 
+frequenza[1] contera` le volte che esce 1, frequenza[2] le volte che 
+esce 2, ..., frequenza[k] le volte che esce k (frequenza[0] non viene 
+utilizzato).
+
+____________________________________________________
+
+Appuntamenti
+------------
+
+Scrivere un programma appuntamenti.go dotato di:
+
+- una struttura 
+
+Appuntamento con tre campi int (giorno, oraInizio, oraFine)
+
+che rappresentano il giorno dell'anno dell'appuntamento, 
+l'ora di inizio e quella di fine, rispettivamente.
+Si considerano per semplicità solo appuntamenti che iniziano 
+e finiscono nella stessa giornata e a ore precise (intere).
+
+- una funzione
+
+NewAppuntamento(gg, h1, h2 int) (Appuntamento, bool)
+
+che, se i parametri sono validi (giorno tra 1 e 366,
+ora inizio precedente o uguale a ora di fine e 
+tutte e due tra 0 e 24)
+crea un appuntamento con quei dati e lo restituisce insieme 
+a 'true',
+altrimenti restituisce un Appuntamento zero-valued e 'false'.
+
+- una funzione
+
+CheckSovrapposizioneAppuntamenti(app1, app2 Appuntamento) bool
+
+che, dati due appuntamenti (si supponga siano validi), restituisce 'true'
+se si sovrappongono (anche parzialmente), 'false' altrimenti.
+
+- una funzione 
+
+main() 
+
+che legge da standard input righe che contengono tre interi 
+che rappresentano nell'ordine giorno ora-inizio ora-fine
+(il separatore è solo whitespace)
+e per ciascuna dice se e` valido e non in sovrapposizione con il precedente appuntamento. La lettura termina con EOF (CTRL D).
+
+_____________________________________________________________
+
+Progetto Data
+
+Partendo dal programma estrai_data.go scrivere un programma data.go 
+dotato di una struttura Data con campi giorno (int, mese (string) e anno (int) 
+e un array mesi con i nomi dei mesi 
+("gen", "feb", "mar", "apr", "mag", "giu", "lug", "ago", "set", "ott", "nov", "dic").
+
+Il main deve ora inizializzare una struttura Data con la data del giorno successivo a quello dato in input.
+
+_____________________________________________________________
+
+
+Progetto Clessidra
+------------------
+
+Scrivere un programma lez5_clessidra che mostri una clessidra 
+(animata) che scandisce un countdown.
+
+Esempio
+-------
+al tempo 0:
+*****
+ ***
+ * *
+*   *
+
+
+al tempo 1:
+*   *
+ ***
+ * *
+*****
+
+al tempo 2:
+*   *
+ * *
+ ***
+*****
+
+Il tempo (numero di secondi) va letto da stdin.
+La dimensione della clessidra e` funzione dei secondi 
+per cui e` stata programmata.
+
+
+
+Partite progettando la funzione che disegna una singola riga
+della clessidra
+
+// funzione che disegna una singola riga
+// accetta lunghezza, stato di piena o meno, 
+// carattere da usare, shift verso destra
+// Dato che avete gia` visto strings provate a farlo senza for
+func rigaClessidra(length int, full bool, char byte, shift int)  string
+
+e usate la funzione main per invocarla e testarla.
+
+---
+
+Progettate poi la funzione che disegna tutta la clessidra
+
+// funzione che disegna tutta la clessidra
+// accetta altezza e secondi passati dallo start
+// l'altezza sara` il numero di secondi totali
+// e sara` l'altezza di ciascun "cono"
+// usate (altezza * 2 + 1) come base per il "cono"
+func clessidra(height int, time int)
+
+e usate la funzione main per invocarla e testarla,
+dapprima una sola e poi in un ciclo che disegna le 
+varie clessidre all'avanzare del tempo (una per secondo).
+
+---
+
+Per ultimare il progetto vi saranno utili queste due funzioni:
+
+// Funzione che fa il clear dello schermo
+// importare "os/exec"
+func cancella() {
+	cmd := exec.Command("clear")
+	cmd.Stdout=os.Stdout
+	cmd.Run()
+}
+
+// Funzione che attende
+// time.Sleep(time.Duration(n_seconds) * time.Second)
+// (o time.Millisecond, time.Nanosecond....)
+func attendi(n_seconds float64){
+	time.Sleep(time.Duration(n_seconds) * time.Second)
+}
+
+Infatti la funzione main dovra` chiamare la funzione che disegna 
+la clessidra in un ciclo temporizzato, cancellando lo schermo
+tra un disegno e l'altro.
+__________________________________________________________
+
+
+
+
+
+

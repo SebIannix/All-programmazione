@@ -1,0 +1,401 @@
+Laboratorio 08 - 28/11/2019
+===========================
+
+
+ESERCIZI
+========
+
+Array
+-----
+
+Scrivere un programma array.go dotato di:
+
+- una costante DIM per la dimensione di array
+
+- una funzione main che inizializza un array 
+di dimensione DIM e testa le due seguenti funzioni 
+sull'array stesso
+
+
+- una funzione reverse
+che inverte l'ordine dei valori in un array di dimensione DIM,
+mettendo il primo in fondo, il secondo in penultima posizione 
+e così via nell'array stesso
+
+
+- una funzione switchFirstLast
+che scambia il primo con l'ultimo dei valori in un array
+di dimensione DIM
+
+
+Esempio
+_______
+
+go run array.go
+
+1 2 3 4 5
+
+reverse: 5 4 3 2 1
+
+switchFirstLast: 1 4 3 2 5
+__________________________________________________________
+
+Appello
+
+Scrivere un programma appello.go che legge da linea di comando 
+una sequenza di nomi e li stampa in ordine alfabetico.
+
+Esempio
+-------
+
+$ go run appello.go Rita Carlo Matteo Ada
+[Ada Carlo Matteo Rita]
+
+Nota: Utilizzare la funzione Strings(a []string) del pacchetto "sort"
+per ordinare in modo crescente i nomi.
+
+__________________________________________________________
+
+Timer 
+-----
+
+Scrivere un programma countdown.go dotato di:
+
+- una struttura Countdown con tre campi hour, min, sec 
+di tipo int
+
+- una funzione countdown
+che fa scalare l'orario di un secondo, invocando opportunamente 
+changeMin (quando sono da modificare anche i minuti)
+
+- una funzione changeMin
+che fa scalare l'orario di un minuto, invocando opportunamente 
+changeHour (quando sono da modificare anche le ore)
+
+- una funzione changeHour
+che fa scalare l'orario di un'ora, riportandola a 23 dopo lo 0 
+
+- una funzione main che chiede l'orario di partenza e fa partire
+il countdown, stampando l'orario a ogni secondo. Suggerimento:
+usare l'istruzione
+	time.Sleep(time.Duration(1) * time.Second)
+per far passare (circa) un secondo prima di stampare ogni nuovo orario.
+
+
+Esempio
+_______
+
+go run countdown.go
+time (hh mm ss): 1 0 3
+{1 0 2}
+{1 0 1}
+{1 0 0}
+{0 59 59}
+{0 59 58}
+{0 59 57}
+{0 59 56}
+{0 59 55}
+...
+__________________________________________________________
+
+Strana sillabazione
+
+Il professor Amiomodo, sostenendo che le regole di 
+sillabazione della lingua italiana sono troppo complesse 
+e piene di eccezioni, propone un nuovo e originale
+metodo di sillabazione. Il metodo consiste in questo: 
+una sillaba è una sequenza massimale di caratteri consecutivi
+che rispettano lʼordine alfabetico.
+Per esempio, la parola ambire viene sillabata come am-bir-e: 
+infatti la lettera a precede la lettera m, e le lettere b, i e r
+rispettano anchʼesse lʼordine. Analogamente, la parola 
+sotterfugio viene sillabata come s-ott-er-fu-gio. 
+
+Scrivere un programma sillabe.go che, ricevendo come 
+argomento sulla riga di comando una parola, la sillabi. 
+
+Si può assumere che la stringa in input sia costituita 
+solo da lettere minuscole
+
+__________________________________________________________
+
+Turtle
+
+
+Scrivere un programma turtle.go dotato di:
+
+- un tipo Direction byte
+
+- quattro costanti Nord, Est, Sud, Ovest di tipo Direction
+
+type Direction byte
+
+const (
+	Nord Direction = iota
+	Est
+	Sud
+	Ovest
+)
+
+- una struttura Turtle con due campi x, y di tipo int
+e un campo direction di tipo Direction
+
+- una funzione forward per far avanzare la tartaruga
+nel verso della sua direzione di un numero di passi
+passato come parametro
+
+- una funzione backward per far indietreggiare la tartaruga 
+rispetto al verso della sua direzione di un numero di passi
+passato come parametro
+
+- una funzione right per far ruotare la direzione della tartaruga 
+di 90 gradi verso destra (nel verso dell'orologio)
+
+- una funzione right per far ruotare la direzione della tartaruga 
+di 90 gradi verso sinistra (nel verso antiorario)
+
+- una funzione main che crea una tartaruga in posizione (0,0) e 
+che guarda verso Nord e testa le altre funzioni
+__________________________________________________________
+
+
+Stats temperature
+-----------------
+
+
+Scrivere un programma temperature.go che legge delle temperature 
+(int) da tastiera e termina quando il valore letto è 999.
+Il programma deve stampare
+- la media
+- la mediana
+- il numero di temperature sotto la media delle temperature stesse.
+- le tre temperature più basse (se ci sono almeno 3 temperature)
+- le tre temperature più alte (se ci sono almeno 3 temperature)
+
+Nota 1: la mediana di un insieme di dati  e` data, nel 
+caso ci sia un numero dispari di dati, dal dato centrale 
+dei dati ordinati per valore (ad es. crescente), altrimenti
+dalla media dei due dati centrali.
+
+Nota 2: Utilizzare la funzione Ints(a []int) del pacchetto "sort"
+per ordinare in modo crescente le temperature.
+__________________________________________________________
+
+Carte da gioco
+--------------
+
+- Definire un tipo struct carta con due campi di tipo string: 
+valore ("A", "1", ..., "10", "J", "Q", "K") e seme 
+("C", "Q", "F", "P").
+- Definire una funzione estraiCarta() che genera un numero 
+casuale tra 1 e 52 e restituisce la carta corrispondente 
+(le prime 13 sono di cuori, dalla 14 alla 26 sono di quadri, 
+ecc, quindi 11 -> fante di cuori; 14 -> asso di quadri)
+- Definire una funzione main che chiama estraiCarta e stampa 
+la carta estratta.
+- Definire una funzione daiCarte(n int) che restituisce
+una slice di n carte estratte con estraiCarta.
+- Testarla nel main.
+
+Nota. Per generare numeri casuali, c'e` la funzione rand.Intn(n int)) 
+del pacchetto "math/rand"; per generare sequenze sempre diverse, 
+importare il pacchetto "time" e usare l'istruzione 
+rand.Seed(time.Now().Unix()) 
+prima di iniziare a generare numeri.
+__________________________________________________________
+__________________________________________________________
+
+
+PFROGETTI
+=========
+
+Stack
+-----
+
+Creare un programma stack.go che gestisca uno stack (pila)
+generico (numero arbitrario di posizioni) di valori float
+
+Lo stack e` una struttura dati con le seguenti caratteristiche:
+- mantiene nella prima posizione (detta testa) il valore piu' recente
+- e` possibile accedere sempre e solo alla sua testa
+
+Le operazioni disponibili sullo stack sono:
+- push: aggiunge un valore in testa allo stack
+- pop: rimuove il valore in testa allo stack e lo restituisce
+- top (o peek):  restituisce il valore in testa allo stack senza rimuoverlo
+- empty: restituisce vero se lo stack e` vuoto, falso altrimenti
+
+Per ciascuna operazione creare una funzione, usando 
+nomi maiuscoli (Push, Pop, ...).
+
+Implementare poi una funzione main() che chieda ripetutamente
+all'utente quale operazione vuole richiedere (push/pop/top/empty/quit),
+nel caso di push chieda anche il valore da aggiungere,
+stampi ogni volta il risultato e lo stack, e termini con quit.
+
+Esempio
+-------
+
+Operazione (push/pop/top/empty/quit)?
+push 
+valore?
+4
+[4]
+Operazione (push/pop/top/empty/quit)?
+push
+valore?
+5
+[5 4]
+Operazione (push/pop/top/empty/quit)?
+pop
+testa 5
+[4]
+Operazione (push/pop/top/empty/quit)?
+top
+testa 4
+[4]
+Operazione (push/pop/top/empty/quit)?
+quit
+
+Nota: per interrompere un for da uno switch annidato,
+occorre etichettare il for e aggiungere l'etichetta
+al break:
+
+myloop:
+for ....{
+	....
+	break myloop
+}
+
+Versione 1: Usare per lo stack una variabile globale e 
+per semplicita` implementare lo stack con una slice in 
+cui la testa dello stack e` l'ultimo elemento (quello in 
+posizione len(stack)-1).
+
+Versione 2: implementare lo stack con una slice in cui la 
+testa dello stack e` il primo elemento (quello in posizione 0)
+Suggerimento: e` possibile appendere a una slice s1 un'altra 
+slice s2 usando ... per espandere s2 a una lista di argomenti:
+
+append(s1, s2...)
+
+e creando una slice che contenga la nuova testa:
+
+[]float64{val}
+
+Versione 3: Usare per lo stack una variabile locale del 
+main e quindi passarlo come parametro alle funzioni 
+(usare puntatori).
+Per accedere a un elemento di una slice di cui si ha il
+puntatore la sintassi e`:
+
+(*stack)[i]
+
+____________________________________________________
+
+Calcolatrice RPN
+----------------
+
+Creare una sottodir stack in cui spostare la versione 3 
+del programma stack.go. Modificare il nome del
+pacchetto in "stack" invece che main e commentare 
+la funzione main().
+
+Creare un programma RPN.go che importa "./stack".
+
+Il programma deve realizzare una calcolatrice in 
+notazione polacca inversa (RPN), o notazione postfissa
+(https://it.wikipedia.org/wiki/Notazione_polacca_inversa),
+notazione in cui prima si inseriscono gli operandi e 
+poi gli operatori: ad esempio 3 4 + 5 * invece che 
+(3 + 4) * 5, e 3 4 5 * +  invece di 3 + 4 * 5.
+
+La calcolatrice deve disporre delle quattro operazioni 
+aritmetiche (+ - * /) e operare su valori float64.
+
+Il funzionamento e` il seguente:
+ripetere:
+  - leggere un input dall'utente
+    - se e` un numero, lo mette in testa allo stack (una push)
+    - se e` un operatore, 
+      - preleva gli operandi dallo stack (due pop)
+      - esegue l'operazione corrispondente all'operatore (+ - * /)
+      - salva il risultato nello stack (push)
+    - condizione di uscita: inserimento di "q" (quit)
+- condizioni di errore: mancanza di operandi
+Nel caso l'input non sia ne' un numero ne' un operatore ne' 
+"q", il programma lo ignora (non occorre che segnali errore). 
+
+Per verificare se l'input e` un numero, utilizzare la funzione
+	val, err := strconv.ParseFloat(input, 64)
+
+Nel caso err sia nil, l'input e` un numero che verra` salvato
+in val. 
+
+Esempio
+-------
+$ go run RPN.go
+Next? (+, -, *, /, q o un numero) 3
+[3]
+Next? (+, -, *, /, q o un numero) 5
+[3 5]
+Next? (+, -, *, /, q o un numero) 7
+[3 5 7]
+Next? (+, -, *, /, q o un numero) *
+[3 35]
+Next? (+, -, *, /, q o un numero) +
+[38]
+Next? (+, -, *, /, q o un numero) -
+not enough data
+[38]
+Next? (+, -, *, /, q o un numero) q
+
+Creare una seconda versione RPN2.go in cui l'espressione 
+da valutare sia fornita da linea di comando (os.Args) 
+invece che da standard input (cioe` tastiera).
+
+In questo caso se l'espressione contiene moltiplicazioni,
+l'asterisco va messo tra apici ('*') o tra virgolette ("*").
+____________________________________________________
+
+Black Jack
+----------
+
+Riprendere il progetto delle carte da gioco, dove una carta 
+era una struct con i campi seme (string) e valore (string).
+
+Definire una funzione main() per testare man mano le funzioni 
+che seguono.
+
+Definire una funzione Carta che, dato un int nell'intervallo 
+[1,52], restituisce la corrispondente carta da poker (oppure 
+false se l'argomento non e` nell'intervallo).
+Utilizzare degli array invece di uno switch:
+- un array di stringhe = {"A", "2", ...., "10", "J", "Q", "K")
+- un array di stringhe = {"Cuori", "Quadri", "Fiori", "Picche")
+
+Definire la funzione SetValoreBJ che, data una carta, ne assegna 
+il corrispondente valore per il Black Jack (le figure valgono 10, 
+le altre carte valgono il loro valore nominale, l'asso vale 11 o 1, 
+come volete)
+
+Definire una funzione MazzoPoker che crea e restituisce un mazzo 
+di 52 carte da poker (usare le slice).
+
+Definire una funzione Mischia che, dato un mazzo di carte 
+(di dimensione arbitraria), lo rimescola in modo random.
+Usare questa tecnica: percorrere la slice e scambiare ciascuna 
+carta con una scelta di volta in volta a caso tra le carte tra 
+se stessa e la fine del mazzo. Utilizzare lo scambio diretto:
+
+slice[i], slice[r] = slice[r], slice[i]	
+// dove r e` un numero estratto a caso tra i e 52.
+
+Definire una funzione Preleva che, dato un mazzo di carte, restituisce 
+la carta che si trova in cima e la toglie dal mazzo.
+
+Implementare un simulatore di BJ (https://it.wikipedia.org/wiki/Blackjack), 
+che consenta ad un giocatore singolo di giocare contro il PC (che 
+rappresenta il mazziere).
+Utilizzare come mazzo due mazzi da poker.
+____________________________________________________

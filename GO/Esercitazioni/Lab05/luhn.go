@@ -32,7 +32,7 @@ func main() {
 	sum := 0
 	for i := range a {
 		if i % 2 == 0 {
-			a[i] = a[i] * 2
+			a[i] *= 2
 			if a[i] > 9 {
 				a[i] -= 9
 			}

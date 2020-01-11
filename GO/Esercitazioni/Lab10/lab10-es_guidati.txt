@@ -1,0 +1,101 @@
+Lab 10 - esercizi guidati
+=========================
+
+
+
+Fattoriale (ricorsione)
+=======================
+
+Scrivere un programma fattoriale.go, dotato di una
+funzione ricorsiva 
+
+func fattoriale(n int) int
+
+che calcola il fattoriale del numero n passato come parametro,
+e di una funzione main() che, dato un numero naturale come 
+argomento sulla linea di comando, emetta nel flusso d'uscita 
+il fattoriale del numero dato. 
+
+Dato un numero naturale n, il suo fattoriale, indicato con n!, 
+e` cosi' definito:
+
+0! = 1
+
+per n > 0, n! = n * (n-1)!
+____________________________________________________________
+
+Prodotto vettore per scalare (puntatori)
+========================================
+
+Scrivere un programma prod_per_scalare.go che definisce e testa:
+
+la funzione prodPerScalare che, dato un vettore (array) A
+di float64 di dimensione fissata dalla costante N, ed un valore V
+float64, calcola il prodotto del vettore A per lo scalare V.
+
+Nota: il risultato è un vettore della stessa lunghezza i cui
+elementi sono i prodotti dei corrispondenti elementi del vettore
+iniziale A per il valore V:
+
+ad es. [1 , 0.5, 1.2] * 2 -> [2, 1, 2.4]
+
+Versione 1: l'array "prodotto" viene restituito dalla funzione.
+Versione 2: la funzione non restituisce nulla, l'array passato
+come argomento viene modificato (uso di puntatore).
+
+Parte 2.
+
+Definire due analoghe funzioni che usino le slice anziché gli array.
+
+Le funzioni da implementare e testare sono:
+
+- prodPerScalare, che calcola il prodotto scalare di un array per un valore 
+  e restituisce il risultato
+- prodPerScalare2 che esegue il prodotto con gli array ma non restituisce nulla
+- prodPerScalare3 che esegue il prodotto usando le slice; restituisce il risultato
+- prodPerScalare4 che esegue il prodotto usando le slice senza restituire il risultato
+
+____________________________________________________________
+
+
+Inverti (mappe e slice)
+=======================
+
+Scrivere un programma inverti_mappa.go che definisce e testa la seguente funzione.
+
+func inverti(m map[string]int) map[int][]string
+
+funzione che data una map[string]int m, restituisce la mappa "inversa", cioè la
+mappa che associa ad un valore intero l'insieme delle stringhe (possono essere più d'una!)
+che nella map m sono associate a  quel valore.
+
+
+Es.
+mappa:
+map[due:2 Uno:1 uno:1]
+inversa:
+map[1:[uno Uno] 2:[due]]
+
+____________________________________________________________
+
+Somma pari (composizione di piani)
+===================================
+
+
+- data una stringa di caratteri misti (lettere, cifre, ecc)
+calcolare la media delle cifre pari
+
+Goals:
+
+- identificare le cifre
+- tra queste identificare quelle pari
+- contarle
+- sommarle
+- se ce ne sono, fare somma/conteggio
+
+Come compongo i rispettivi plans?
+
+I tipi di composizione sono:
+sequenza, annidamento, fusione, adattamento
+____________________________________________________________
+

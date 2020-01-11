@@ -1,0 +1,90 @@
+Lab 11 - I/O - esercizi guidati
+===============================
+
+WordCount
+========= 
+
+Scrivere un programma conta_lettere_parole.go che legge da tastiera 
+un testo (anche su più righe), fino a incontrare la lettera S su 
+una nuova riga, e stampa:
+- il numero di byte, inclusi gli spazi ma esclusi gli a capo
+- il numero di rune, inclusi gli spazi ma esclusi gli a capo
+- il numero di parole (stringhe separate da white spaces)
+- il numero di righe
+
+
+Nota: usare la funzione ReadString('\n')
+
+Esempio
+=======
+
+ciao come stai?
+àèìòù
+bye bye
+S
+bytes: 32
+runes: 27
+words: 6
+lines: 3
+
+
+______________________________________
+
+Matrix
+======
+
+Scrivere un programma matrix.go che legge da linea di comando due interi r e c, 
+crea una matrice r x c, la inizializza con caratteri consecutivi 
+letti da tastiera (su un'unica riga, senza spazi) e la stampa.
+
+Nota 1 . Per leggere un certo numero di byte, usare:
+
+reader := bufio.NewReader(os.Stdin)
+
+e la funzione
+
+reader.Read(b []byte) 
+
+che salva in b n byte, dove n è la dimensione di b.
+
+
+Nota 2. Per creare una matrice di dimensioni date r x c:
+
+matrix := make([][]byte, r)
+rows := make([]byte, r*c)
+for i := 0; i < r; i++ {
+	matrix[i] = rows[i*c : (i+1)*c]
+}
+
+Esempio
+=======
+
+go run matrix.go 3 4
+abcdefghijklmnopq
+abcd
+efgh
+ijkl
+
+______________________________________
+
+Analisi testo.go
+================
+
+Scrivere un programma analisi_testo.go che legge da linea di comando il nome di un file, 
+e stampa le parole contenute nel file, ognuna con il suo numero di occorrenze.
+
+Nota: usare 	
+	inputFile, _ := os.Open(os.Args[1)
+	fileScanner := bufio.NewScanner(inputFile)
+	fileScanner.Split(bufio.ScanWords)
+
+Esempio
+=======
+
+go run analisi_testo.go input.dat 
+map[come:1 stai?:1 àèìòù:1 bye:1 Ciao:1 ciao:2]
+
+______________________________________
+
+
+

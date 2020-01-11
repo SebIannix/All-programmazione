@@ -1,0 +1,286 @@
+Lab 10 - ricorsione
+===================
+
+
+Fattoriale
+==========
+
+Scrivere un programma fattoriale.go, dotato di una
+funzione ricorsiva 
+
+func fattoriale(n int) int
+
+che calcola il fattoriale del numero n passato come parametro,
+e di una funzione main() che, dato un numero naturale come 
+argomento sulla linea di comando, emetta nel flusso d'uscita 
+il fattoriale del numero dato. 
+
+Dato un numero naturale n, il suo fattoriale, indicato con n!, 
+e` cosi' definito:
+
+0! = 1
+
+per n > 0, n! = n * (n-1)!
+
+____________________________________________________________
+
+Potenza
+=======
+
+Scrivere un programma potenza.go, dotato di una funzione
+ricorsiva 
+
+func potenza(base, exp int) int
+
+che restituisce il valore della base elevata a exp
+
+e di una funzione main() che, dati due numeri naturali come 
+argomenti sulla linea di comando, emetta nel flusso d'uscita 
+il valore della base elevata a exp. 
+
+Suggerimento: 
+
+b^0 = 1
+
+b^n = b * b^(n-1)
+
+____________________________________________________________
+
+
+Strette di mano
+===============
+
+Scrivere un programma stretteDiMano, dotato di una funzione
+ricorsiva
+
+numStretteMano(n int) int
+
+che calcola il numero di strette di mano scambiate nella stanza se ciascuna
+persona stringe la mano a ciascuna altra una e una sola volta,
+
+e di una funzione main() che, dato un numero naturale come argomento 
+sulla linea di comando, che rappresenta il numero di persone in una stanza, 
+emetta nel flusso d'uscita il numero di strette di mano
+
+Suggerimento: 	
+se n = 0 	strette = 0
+se n = 1	strette = 0
+se n = 2	strette = 1
+se nella stanza ci sono n persone (che si sono già strette la mano) e arriva 
+una nuova persona, quante nuove strette di mano verranno fatte? 
+____________________________________________________________
+
+
+Palindromo
+==========
+
+Scrivere un programma palindromo.go, dotato di una funzione
+ricorsiva 
+
+isPalindromo(s string) bool
+
+che stabilisca se una stringa e` palindroma,
+
+e di una funzione main() che, data una stringa come argomento sulla 
+linea di comando, emetta nel flusso d'uscita il messaggio 
+"s e' palindroma", se s 
+e` palindroma, e "s non e' palindroma" altrimenti.
+
+La stringa vuota e le stringhe di lunghezza 1 sono palindrome.
+____________________________________________________________
+
+Massimo
+=======
+
+Scrivere un programma massimo.go, dotato di una funzione ricorsiva 
+
+massimo(lista []int) int
+
+che, data una lista di numeri, restituisca il massimo tra i valori dati,
+
+e di una funzione main() per testarla.
+
+Suggerimento: 
+se la lista e` vuota, non c'e` massimo;
+se la lista e` lunga 1, l'unico elemento e` il massimo;
+se la lista e` lunga 2, il massimo e` il massimo tra i due elementi;
+se la lunghezza della lista e` > 2, il massimo e` uguale al 
+massimo tra il primo elemento della lista  e il massimo della 
+sottolista ottenuta togliendo il primo elemento, 
+
+dove il massimo della sottolista e` ... il massimo tra 
+il primo elemento della sottolista e il massimo della 
+sotto-sottolista ottenuta togliendo il primo elemento 
+della sottolista, ....
+
+Nota. Si osservi che il caso di lista di lunghezza due e 
+il caso di lista di lunghezza > 2 possono essere accorpati 
+in un unico caso:
+cioe` il massimo in una lista di lunghezza > 1 e` il massimo 
+tra il primo elemento della lista  e il massimo della 
+sottolista ottenuta togliendo il primo elemento.
+____________________________________________________________
+
+
+Figure: Righello
+================
+
+Descrizione
+-----------
+
+Scrivere un programma righello.go, dotato di una funzione
+ricorsiva
+
+righello(n int)
+
+che, data la dimensione di un righello, emetta nel flusso d'uscita 
+un righello della dimensione data e di una funzione main() che, data
+la dimensione come argomento sulla linea di comando,
+produca il righello corrispondente.
+
+La dimensione puo` essere 0, nel qual caso il programma non emette nulla.
+
+Per la definizione di "righello" si legga con attenzione quanto segue:
+
+- chiamiamo "tacca" di lunghezza N una sequenza di N caratteri "-" 
+seguiti da "a-capo"; 
+- chiamiamo "righello" di dimensione M > 0 una tacca lunga M 
+preceduta e seguita da un righello di dimensione M - 1, assumendo per 
+convenzione che un righello di dimensione 0 non contenga alcuna tacca 
+(o altro righello).
+
+
+Ad esempio, un righello di dimensione 1 e`:
+
+	-
+
+ossia e` una tacca (preceduta e seguita da null'altro); 
+
+un righello di dimensione 2 e`:
+
+	-
+	--
+	-
+
+infatti e` dato da un righello di dimensione 1 seguito da una tacca 
+lunga 2 e quindi da un righello di dimensione 1; 
+
+un righello di dimensione 3 e`:
+
+	-
+	--
+	-
+	---
+	-
+	--
+	-
+
+di nuovo, infatti, osserviamo un righello di dimensione 2, seguito da una
+tacca di lunghezza 3 e quindi ancora da un righello di dimensione 2.
+
+
+Esempio
+-------
+
+Eseguendo
+
+go run righello.go 4
+
+il programma emette
+
+	-
+	--
+	-
+	---
+	-
+	--
+	-
+	----
+	-
+	--
+	-
+	---
+	-
+	--
+	-
+
+nel flusso di uscita.
+
+____________________________________________________________
+
+
+Figure: Clessidra
+=================
+
+Scrivere un programma clessidra.go, dotato di una funzione
+ricorsiva 
+
+clessidra(n, offset int) 
+
+che emetta nel flusso d'uscita una clessidra di base 2*n-1
+e una funzione main() per testarla.
+
+Ad esempio, una clessidra di dimensione 1 e`:
+*
+
+Una clessidra di dimensione 2 e`:
+***
+ *
+***
+
+cioè una clessidra di dimensione 1, con offset 1, inclusa tra due basi di lughezza ?
+
+Una clessidra di dimensione 3 e`:
+*****
+ ***
+  *
+ ***
+*****
+
+cioè una clessidra di dimensione 2, con offset 1, inclusa tra due basi di lughezza ?
+che è a sua volta ...
+____________________________________________________________
+
+Massimo comun divisore (MCD)
+============================
+
+Scrivere un programma mcd.go, dotato di una funzione ricorsiva 
+
+mcd(p, q int) int
+
+che, dati due numeri naturali, restituisca il valore del loro 
+massimo comun divisore,
+
+e di una funzione main() che legge due numeri da standard input
+per testarla. 
+
+Nota: Il MCD di due interi positivi e` il piu' grande intero che li 
+divide entrambi.
+
+Suggerimento: sfruttare la seguente proprietà.
+
+Sia p > q. Se q è zero, allora p è il MCD.
+Altrimenti il MCD di p e q e` lo stesso del MCD di q e p % q.
+____________________________________________________________
+
+
+Ordinali di von Neumann
+=======================
+
+Un intero di von Neumann i e` definito come segue:
+
+per i = 0, e` l'insieme vuoto {};
+per i > 0, e` l'insieme contenente gli interi di von Neumann da 0 a i-1.
+
+0 = {}         = {}
+1 = {0}        = {{}}
+2 = {0, 1}     = {{}, {{}}}
+3 = {0, 1, 2}  = {{}, {{}}, {{}, {{}}}}
+
+Scrivere un programma ordinali.go dotato di una funzione ricorsiva
+
+vonNeumann(n int) []byte
+
+che, dato un numero naturale n, restituisca l'intero di von Neumann n,
+e di una funzione main() per testarla.
+____________________________________________________________

@@ -1,0 +1,213 @@
+GLI SCACCHI
+===========
+
+
+Implementiamo il gioco degli scacchi (una parte...)
+
+Il gioco degli scacchi ha 
+- una scacchiera quadrata di 8x8 caselle, 
+- 16 "pezzi" bianchi e 16 neri. 
+I nomi dei pezzi e il numero per ciascun colore sono:
+
+1	RE
+1	REGINA
+2	TORRE
+2	ALFIERE
+2	CAVALLO
+8	PEDONE
+
+Realizziamo il progetto su due file nella stessa dir
+(stesso package main per i due file): main.go e 
+scacchiera.go
+________________________
+
+scacchiera.go
+==================
+
+Iniziamo con scacchiera.go, in cui metteremo tutto quello
+che riguarda gli scacchi. Utilizzeremo inizialmente il main.go
+per fare un minimo di testing, e poi passeremo a realizzare
+li' la parte per giocare.
+
+Per lavorare su pezzi e scacchiera possiamo definire i tipi:
+
+- Pezzo come struct con due campi: nome e colore
+
+- Casella come struct con due campi: riga e colonna
+
+- Scacchiera come map[Casella]Pezzo
+
+Ci conviene poi definire dei nuovi tipi e delle costanti.
+
+Un tipo per i colori e uno per i pezzi:
+
+- Colore bool // alias per il colore dei pezzi
+- Tipo byte   // alias per il tipo dei pezzi
+
+
+Come costanti, per i colori, ad esempio:
+
+	BIANCO = false
+	NERO   = true
+
+
+e per i pezzi:
+
+	NULL = iota // 0 per indicare che sulla casella non c'e` nessun pezzo
+	RE	//1
+	REGINA	//2
+	TORRE	//3
+	ALFIERE	//4
+	CAVALLO	//5
+	PEDONE	//6
+
+
+possiamo sfruttare l'ordine dei pezzi per ottenere i loro simboli Unicode, 
+che hanno codici crescenti a partire dal RE (U+2654) in questo stesso ordine.
+
+Passiamo ora a implementare qualche funzione.
+
+- una funzione func StringPezzo(p Pezzo) (t string) 
+che restituisce la rappresentazione testuale (t) di un Pezzo degli scacchi,
+cioe` il suo simbolo Unicode (se il pezzo non esiste, restituisce "").
+Nota: i codice Unicode del simbolo per il re bianco e` '\u2654'
+e i valori dei pezzi sono contigui (prima i bianchi poi i neri).
+
+- una funzione func checkCasella(r byte, c rune) bool
+che verifica se le coordinate di una casella sono corrette
+(righe 1-8, colonne 'a'-'h')
+
+(le operazioni di base sulla map sono ridefinite come segue per comodita`)
+
+- una funzione func getPezzo(s Scacchiera, r byte, c rune) (p Pezzo)
+che restituisce il pezzo che si trova nella casella (r,c) della scacchiera s
+
+- una funzione func putPezzo(s Scacchiera, p Pezzo, r byte, c rune) 
+che dispone il pezzo p sulla casella (r,c) della scacchiera s
+Non esegue alcun controllo.
+________________________
+
+main.go
+============
+
+Va dichiarata una variabile globale di tipo Scacchiera.
+
+Definire:
+
+- una funzione func init()
+che crea e inizializza la scacchiera disponendo i pezzi per iniziare una partita,
+cioe`:
+P P P P P P P P
+T C A D R A C T
+
+Nota. Poiche' l'ordine iniziale non e` quello dei codici Unicode, si consiglia
+di disporre in un array i pezzi nell'ordine previsto per iniziare il gioco, es:
+
+primariga := []Tipo{TORRE, CAVALLO, ALFIERE, REGINA, RE, ALFIERE, CAVALLO, TORRE}
+
+e accedervi per recuperare i nomi dei pezzi in ordine e preparare la scacchiera.
+
+
+Per visualizzare la scacchiera:
+
+(vedi http://morpurgo.di.unimi.it/didattica/LabProgrammazione/Esercizi/scacchiera.png)
+
+La barra vericale e` "\u2502"
+
+- una funzione func hline(width int) string
+che restituisca una linea orizzontale lunga 9*width
+di "\u2500" (barra orizzontale) che inizia con un a-capo ("\n")
+
+
+- una funzione func printScacchiera(s Scacchiera)
+per visualizzare la scacchiera.
+Nota: la barra vericale e` "\u2502"
+
+- una funzione func readMossa() (r1 byte, col1 rune, r2 byte, col2 rune) 
+che legge una mossa nella forma: r1,c1 r2,c2
+e restituisce le coordinate di partenza e di arrivo
+non bisogna inserire spazi in "r1,c1" e "r2,c2", la virgola e` obbligatoria; premere invio alla fine
+
+si puo` usare 
+fmt.Scanf("%d,%c %d,%c\n", &r1, &col1, &r2, &col2)
+
+________________________
+
+lez9_scacchiera.go
+==================
+
+- una funzione func removePezzo(s Scacchiera, r byte, c rune)
+che svuota la casella (r,c) della scacchiera s
+Non esegue alcun controllo.
+
+- una funzione 
+func validMove(s Scacchiera, turno Colore, r1 byte, c1 rune, r2 byte, c2 rune) (src, dest Pezzo, ok bool) 
+
+che verifica se la mossa (r1,b1) in (r2,b2) sulla scacchiera s e` valida:
+  - controlla che le coordinate delle caselle siano corrette, che la casella iniziale non sia vuota,
+  - che contenga un pezzo dello stesso colore del turno di gioco,
+  - che la casella finale sia vuota o contenga un pezzo di colore diverso //(attenzione alla regola del pedone!),
+  - che la mossa sia valida per il pezzo da muovere, in base alle regole,...)***
+  - se la mossa e` valida restituisce (src, dest, true), dove src e dest sono i pezzi sulle caselle di
+partenza e di arrivo, altrimenti restituisce false
+
+*** Nota: si consiglia di definire per ogni tipo di pezzo una funzione booleana
+checkNomepezzo(scacchiera, r1, c1, r2, c2), cioe`: checkPedone, checkAlfiere, 
+checkTorre, ecc.
+
+- una funzione 
+func movePezzo(s Scacchiera, turno Colore, r1 byte, c1 rune, r2 byte, c2 rune) (src, dest Pezzo, ok bool) 
+che, se possibile in base alla attuale disposizione dei pezzi, 
+esegue la mossa (r1,b1) in (r2,b2) sulla scacchiera s, 
+assumendo che sia il turno di un colore
+restituisce (src, dest, true), dove src e dest sono i pezzi sulle caselle di partenza e di arrivo
+(quest'ultimo sara`  uguale al valore di default Pezzo{} se la casella di arrivo e` vuota),
+false se la mossa non e` valida per qualsiasi motivo
+
+________________________
+
+lez9_main.go
+============
+
+- una funzione main()
+che legge le mosse e gestisce lo svolgimento di una partita a scacchi
+
+________________________
+
+Chi vuole provare a implementare la funzione main(), non legga oltre.
+Metto qui una possibile implementazione
+
+________________________
+________________________
+________________________
+
+
+// simula una partita a scacchi
+func main() {
+	fmt.Println("semplice simulatore per gli scacchi\nsintassi mossa: r1,c1 r2,c2")
+	fmt.Println("r1,r2 compresi tra 1..8; c1,c2 tra 'a'..'h' (non inserire spazi tra rx e cx; separare con ',' - premere invio alla fine)")
+	fmt.Println("Ctrl-c per terminare in anticipo")
+	fmt.Println("per una corretta visualizzazione impostare il terminale come utf-8 e con lo sfondo bianco")
+	printScacchiera(s)
+
+	namecol := map[Colore]string{BIANCO: "Bianco", NERO: "Nero"}
+	turno := Colore(BIANCO) //inizia il bianco
+	for mangiato := Tipo(NULL); mangiato != RE; {
+		fmt.Printf("muove il %s: ", namecol[turno])
+		r1, c1, r2, c2 := readMossa()
+		if src, dest, ok := movePezzo(s, turno, r1, c1, r2, c2); ok {
+			fmt.Printf("mosso:%s rimosso:%s\n", StringPezzo(src), StringPezzo(dest))
+			mangiato = dest.nome
+			prima[turno] = false
+			turno = !turno
+		} else {
+			fmt.Println("mossa non valida")
+		}
+		printScacchiera(s)
+	}
+	fmt.Printf("scacco! vince il %s\n", namecol[!turno])
+}
+
+
+
+
